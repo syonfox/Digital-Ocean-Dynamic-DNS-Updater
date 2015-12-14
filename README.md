@@ -13,6 +13,12 @@ The original script and idea (i.e. the brains behind the whole thing) was loving
 However it was written using Python v2, I had installed v3 so adapted the script as best I could. I then decided it would be cool to also convert it into PHP (I know at least 1 other person that would find it useful) so that's what I did, enjoy!
 
 
+Planed Additions:
+-----------------
+-make a script to automaticaly add a cron job for the dyndns updater
+-make it so that the script stors the curnet ip and only submits a change if there is a change in its ip
+
+
 Usage:
 ------
 Provide your API key, domain you want to update and the 'Record' for that domain and schedule the script to run however 
