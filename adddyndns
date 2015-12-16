@@ -1,0 +1,7 @@
+#!/bin/bash
+
+token=$1
+record=$2
+type=$3
+
+echo "* *     * * *    dyndns    /opt/dyndns/updater.php $token $record $type" >> /etc/cron.d/dyndns
