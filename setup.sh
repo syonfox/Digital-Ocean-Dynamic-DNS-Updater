@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#installing depencencys
+apt-get update
+apt-get install -y php5-curl
+
 #adds a user so that we dont have it runing as root
 useradd -r dyndns -s /sbin/nologin
 
