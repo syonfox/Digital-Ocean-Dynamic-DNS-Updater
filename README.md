@@ -42,7 +42,7 @@ make the setup  script exicutable
 
     sudo chmod +x setup.sh
     
-run the setup script
+run the setup script ( and read it hopfully read it unless you really trust me :P )
 
     sudo ./setup.sh
 
