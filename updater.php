@@ -140,6 +140,14 @@ try {
         throw new Exception('Unable to extract external IP address');
     }
 
+    echo "Checking against old ip";
+    $oldIp=file_get_contents("/opt/dyndns/currentIP");
+    if ($oldIp == $ipAddress) {
+      //exit(0);
+      throw new Exception('IP address is unchanged doing nothing');
+    }
+
+
     echo 'Fetching Record ID for: ' . RECORD . "\r\n";
     if (($record = getRecord()) === false) {
         throw new Exception('Unable to find requested record in DO account');
@@ -147,6 +155,7 @@ try {
 
     echo 'Comparing ' . $record['data'] . ' to ' . $ipAddress . "\r\n";
     if ($record['data'] === $ipAddress) {
+        file_put_contents("/opt/dyndns/currentIP",$ipAddress);
         throw new Exception('Record ' . RECORD . '.' . DOMAIN . ' already set to ' . $ipAddress);
     }
 
@@ -157,7 +166,11 @@ try {
 
     echo 'IP Address successfully updated.' . "\r\n";
 } catch (Exception $e) {
-    echo 'Error: ' . $e->getMessage() . "\r\n";
+    if($e->getMessage() == 'IP address is unchanged doing nothing ') {
+      //do nothing
+    } else {
+      echo 'Error: ' . $e->getMessage() . "\r\n";
+    }
     exit(1);
 }
 
