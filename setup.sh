@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #adds a user so that we dont have it runing as root
-adduser -r dyndns
+adduser -r dyndns -s /sbin/nologin
 
 #makes a folser for the ip variable
 mkdir /opt/dyndns
