@@ -11,7 +11,7 @@ cp updater.php /opt/dyndns/updater.php
 chmod +x updater.php
 
 #makes for folder owned by our dyndns user
-chown -R dundns /opt/dyndns 
+chown -R dyndns /opt/dyndns 
 
 #makes a file for the cron jobs
 touch /etc/cron.d/dyndns
